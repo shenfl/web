@@ -36,6 +36,9 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- 最简只需要上面的依赖 -->
+
     </dependencies>
 
     <build>
