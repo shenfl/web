@@ -55,6 +55,18 @@
             <version>2.9.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-servlet-filter-adapter</artifactId>
+            <version>8.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ctrip.framework.apollo</groupId>
+            <artifactId>apollo-client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
 
     </dependencies>
 

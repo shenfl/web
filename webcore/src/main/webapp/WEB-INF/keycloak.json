@@ -1,0 +1,10 @@
+{
+  "realm": "souche-volvo-dev",
+  "auth-server-url": "https://sso.volvo-dev.souche-inc.com/auth/",
+  "ssl-required": "external",
+  "resource": "test_function",
+  "public-client": true,
+  "verify-token-audience": true,
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}
