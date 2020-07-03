@@ -19,4 +19,7 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <!-- 上传文件时必须加 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
 </beans>

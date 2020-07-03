@@ -1,9 +1,7 @@
 package com.test.web.controller;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -21,6 +19,12 @@ public class FirstRestController {
         // 默认没有boolean converter，加入jackson依赖后就好了
 //        return true;
 
+        return true;
+    }
+
+    @RequestMapping(value = "/import", method = RequestMethod.POST)
+    public Boolean importFile(@RequestParam("file") MultipartFile file) {
+        System.out.println(file.getOriginalFilename());
         return true;
     }
 }
