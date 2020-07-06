@@ -22,6 +22,11 @@ public class FirstRestController {
         return true;
     }
 
+    @RequestMapping(value = "/restGet", method = RequestMethod.GET)
+    public Boolean restGet() {
+        return true;
+    }
+
     @RequestMapping(value = "/import", method = RequestMethod.POST)
     public Boolean importFile(@RequestParam("file") MultipartFile file) {
         System.out.println(file.getOriginalFilename());
