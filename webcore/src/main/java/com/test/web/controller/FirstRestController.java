@@ -1,8 +1,16 @@
 package com.test.web.controller;
 
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -27,9 +35,31 @@ public class FirstRestController {
         return true;
     }
 
+    /**
+     * https://baijiahao.baidu.com/s?id=1654419465068708673&wfr=spider&for=pc
+     * @param file
+     * @return
+     */
     @RequestMapping(value = "/import", method = RequestMethod.POST)
     public Boolean importFile(@RequestParam("file") MultipartFile file) {
         System.out.println(file.getOriginalFilename());
         return true;
+    }
+
+    /**
+     * https://msd.misuland.com/pd/3629905938225299562
+     * @param params
+     * @param request
+     * @return
+     */
+    @PostMapping(value = "/download")
+    public ResponseEntity<Resource> downloadFile(@RequestBody Map<String, Object> params, HttpServletRequest request) throws IOException {
+        System.out.println("Params: " + params);
+        File file = new File("/springmvc.xml");
+        Resource resource = new FileSystemResource(file);
+        return ResponseEntity.ok().contentType(MediaType.parseMediaType("application/octet-stream")) // application/vnd.ms-excel下载excel
+                .contentLength(resource.contentLength())
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                .body(resource);
     }
 }
