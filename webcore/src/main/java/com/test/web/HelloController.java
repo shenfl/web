@@ -1,5 +1,6 @@
 package com.test.web;
 
+import com.github.pagehelper.PageInfo;
 import com.test.web.model.Account;
 import com.test.web.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,9 @@ public class HelloController {
     private AccountService accountService;
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String printHello(ModelMap model) {
-        Account account = accountService.getById(72);
-        System.out.println(account);
+        PageInfo<Account> pageInfo = accountService.selectPage(1, 2);
+        System.out.println(pageInfo);
+        System.out.println(pageInfo.getList());
         model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "yuntao");
         return "test";
