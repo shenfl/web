@@ -17,5 +17,8 @@ spring:
     password: 123456
     url: jdbc:mysql://172.17.40.234:3306/canal1
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: cache.redis.scsite.net
+    port: 6379
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
