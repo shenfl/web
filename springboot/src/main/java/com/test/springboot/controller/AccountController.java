@@ -1,5 +1,6 @@
 package com.test.springboot.controller;
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.test.springboot.mapper.AccountMapper;
 import com.test.springboot.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,17 @@ public class AccountController {
         System.out.println(account);
         account = accountMapper.findById(72);
         System.out.println(account);
+        return true;
+    }
+
+    @GetMapping("/update")
+    public Boolean update() {
+        LambdaUpdateWrapper<Account> updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.eq(Account::getId, 71);
+        updateWrapper.set(Account::getName, "kk");
+        updateWrapper.set(Account::getMoney, null);
+        int update = accountMapper.update(null, updateWrapper);
+        System.out.println(update);
         return true;
     }
 }
