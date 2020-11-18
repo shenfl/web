@@ -28,6 +28,7 @@ public class HelloController {
         model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "yuntao");
         Cookie cookie = new Cookie("key2", "value2");
+        cookie.setDomain("");
         response.addCookie(cookie);
         return "test";
     }
