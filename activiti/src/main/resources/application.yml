@@ -1,0 +1,12 @@
+server:
+  port: 9080
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://172.17.40.234:3306/canal1?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  activiti:
+#    history-level: full
+#    db-history-used: true
+#    check-process-definitions: false
